@@ -1,4 +1,4 @@
-Instructions
+<h2>Instructions </h2>
 
 * With the [ansible.cfg](ansible.cfg) file, you will need to navigate to line 107 or search "remote_user" by selecting control+w in nano.
 * You will need to change the user field to your admin username.
