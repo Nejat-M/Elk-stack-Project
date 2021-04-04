@@ -1,6 +1,6 @@
 ## Automated ELK Stack Deployment
 
-The files in this repository were used to configure the network depicted below .
+The files in this repository were used to configure the network depicted below.
 
 ![](https://github.com/nejunaj/Elk-stack-Project/blob/main/Images/VMNet%20RG%20Network%20diagram.png)
 
