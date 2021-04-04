@@ -1,0 +1,3 @@
+sh roulette2.sh 0310_Dealer_schedule 0312_Dealer_schedule 0315_Dealer_schedule | sh roulette.sh 
+
+The intial sh roulette2.sh field was changed by the other similarly named scripts to yield the dealer name.
