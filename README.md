@@ -105,7 +105,7 @@ The playbook implements the following tasks:
         value: " 262144 "
         state: present
         reload: yes
-        ```
+```
         
 - These increase the memory of the VM that we will be using to run the ELK server.
 
