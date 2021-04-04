@@ -95,7 +95,7 @@ The playbook implements the following tasks:
 - This states what services are to be installed which are noted in the name field.
 - It also notes what state the packages should be in once these tasks are completed.
 
-  ```# Use command module
+```  # Use command module
     - name: Increase virtual memory
       command: sysctl -w vm.max_map_count=262144
      # Use sysctl module
