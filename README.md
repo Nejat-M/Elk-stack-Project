@@ -124,3 +124,6 @@ The playbook implements the following tasks:
   
 - This will launch a docker container on our ELK server. 
 - It also specifies which ports are to be exposed.
+
+The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
+[](https://github.com/nejunaj/Elk-stack-Project/blob/main/Images/Docker_ps_output.png)
