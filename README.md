@@ -174,4 +174,6 @@ SSH into the control node and follow the steps below. Certain files will need to
 
 - Run filebeat-playbook.yml with the following command `$ sudo ansible-playbook filebeat.yml`
 - Once finished, navigate to http://[your.VM.IP]:5601/app/kibana/home and make sure to include the public IP of your ELK VM. * do not inlcude the square brackets.
+- The below webpage should be visible.
 
+![](https://github.com/Nejat-M/Elk-stack-Project/blob/main/Images/Kibana%20Snapshot.png)
