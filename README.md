@@ -126,4 +126,40 @@ The playbook implements the following tasks:
 - It also specifies which ports are to be exposed.
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
-[](https://github.com/nejunaj/Elk-stack-Project/blob/main/Images/Docker_ps_output.png)
+![docker ps](https://github.com/nejunaj/Elk-stack-Project/blob/main/Images/Docker_ps_output.png)
+
+
+### Target Machines & Beats
+This ELK server is configured to monitor the following machines:
+Web1(10.0.0.12) and Web2(10.0.0.13)
+
+We will have now installed Filebeat onto the ELK machine.Filebeat is used as a tool that collects various logevents from our webservers and forwards it for monitoring purposes. Once its set up, we should expect to see logs coming into the kibana dashboard.
+
+### Using the Playbook
+
+In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisione. 
+SSH into the control node and follow the steps below. Certain files will need to be modified to match the users configurations. Instructions provided below.
+
+<h3>ELK setup</h3>
+
+- Copy [ELK deploy.yml](https://github.com/nejunaj/Elk-stack-Project/blob/main/Ansible/ELK%20setup/ELK_deploy.yml) to /etc/ansible in your ansible container.
+- Run the playbook - $sudo ansible-playbook ELK_deploy.yml
+
+<h3>Filebeat installation</h3>
+
+- Make sure there is a "files" folder in your /etc/ansible folder. If not run the following command $mkdir files within /etc/ansible
+- Copy [filebeat-config.yml](https://github.com/nejunaj/Elk-stack-Project/blob/main/Ansible/ELK%20setup/filebeat-config.yml) and [filebeat-playbook.yml](https://github.com/nejunaj/Elk-stack-Project/blob/main/Ansible/ELK%20setup/filebeat-playbook.yml) to /etc/ansible/files 
+- Update the file filebeat-config.yml by running $ nano filebeat-config.yml 
+- Select control+W to search for the below lines and change the IP address to your specific ELK VM internal IP.
+    output.elasticsearch:
+    hosts: ["10.1.0.4:9200"]
+    username: "elastic"
+    password: "changeme"
+
+- Proceed to also search for the following and also update the IP address.
+    setup.kibana:
+    host: "10.1.0.4:5601"
+
+- Run filebeat-playbook.yml with the following command $sudo ansible-playbook filebeat.yml
+- Once finished, navigate to http://[your.VM.IP]:5601/app/kibana/home and make sure to include the public IP of your ELK VM. * do not inlcude the square brackets.
+
