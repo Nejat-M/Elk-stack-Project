@@ -59,7 +59,8 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 
 The playbook implements the following tasks:
 
-```- ---
+```
+---
 - name: Configure Elk VM with Docker
   hosts: Elk
   remote_user: azadmin
@@ -70,7 +71,8 @@ The playbook implements the following tasks:
 - The above specifies what this playbook is for. 
 - It also denotes which VM to deploy to, which is the Elk VM. 
 
-```   # Use apt module
+```   
+    # Use apt module
     - name: Install docker.io
       apt:
         update_cache: yes
@@ -78,14 +80,14 @@ The playbook implements the following tasks:
         name: docker.io
         state: present
 
-      # Use apt module
+    # Use apt module
     - name: Install python3-pip
       apt:
         force_apt_get: yes
         name: python3-pip
         state: present
 
-      # Use pip module (It will default to pip3)
+    # Use pip module (It will default to pip3)
     - name: Install Docker module
       pip:
         name: docker
@@ -95,10 +97,11 @@ The playbook implements the following tasks:
 - This states what services are to be installed which are noted in the name field.
 - It also notes what state the packages should be in once these tasks are completed.
 
-```  # Use command module
+``` 
+    # Use command module
     - name: Increase virtual memory
       command: sysctl -w vm.max_map_count=262144
-     # Use sysctl module
+    # Use sysctl module
     - name: Use more memory
       sysctl:
         name: vm.max_map_count
@@ -109,7 +112,8 @@ The playbook implements the following tasks:
         
 - These increase the memory of the VM that we will be using to run the ELK server.
 
-``` # Use docker_container module
+```
+    # Use docker_container module
     - name: download and launch a docker elk container
       docker_container:
         name: elk
