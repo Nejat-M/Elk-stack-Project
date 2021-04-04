@@ -147,19 +147,27 @@ SSH into the control node and follow the steps below. Certain files will need to
 
 <h3>Filebeat installation</h3>
 
-- Make sure there is a "files" folder in your /etc/ansible folder. If not run the following command $mkdir files within /etc/ansible
+- Make sure there is a "files" folder in your /etc/ansible folder. If not run the following command `$ mkdir files` within /etc/ansible
 - Copy [filebeat-config.yml](https://github.com/nejunaj/Elk-stack-Project/blob/main/Ansible/ELK%20setup/filebeat-config.yml) and [filebeat-playbook.yml](https://github.com/nejunaj/Elk-stack-Project/blob/main/Ansible/ELK%20setup/filebeat-playbook.yml) to /etc/ansible/files 
-- Update the file filebeat-config.yml by running $ nano filebeat-config.yml 
+- Update the file filebeat-config.yml by running `$ nano filebeat-config.yml` 
 - Select control+W to search for the below lines and change the IP address to your specific ELK VM internal IP.
-    output.elasticsearch:
-    hosts: ["10.1.0.4:9200"]
-    username: "elastic"
-    password: "changeme"
+(line 1097)
+
+```
+   output.elasticsearch: 
+   hosts: ["10.1.0.4:9200"]
+   username: "elastic"
+   password: "changeme"
+```
 
 - Proceed to also search for the following and also update the IP address.
-    setup.kibana:
-    host: "10.1.0.4:5601"
+(line 1804)
 
-- Run filebeat-playbook.yml with the following command $sudo ansible-playbook filebeat.yml
+```
+   setup.kibana:
+   host: "10.1.0.4:5601"
+```
+
+- Run filebeat-playbook.yml with the following command `$ sudo ansible-playbook filebeat.yml`
 - Once finished, navigate to http://[your.VM.IP]:5601/app/kibana/home and make sure to include the public IP of your ELK VM. * do not inlcude the square brackets.
 
